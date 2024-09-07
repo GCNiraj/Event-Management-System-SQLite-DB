@@ -9,6 +9,8 @@ router
 
 router
     .route('/:id')
+    .get(paymentController.getPayment)
+    .put(paymentController.updateTicketuse)
 
 
 router

@@ -28,6 +28,10 @@ const Payment = db.define('Payment', {
     },
     no_of_tickets: {
         type: DataTypes.INTEGER
+    },
+    pay_status: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: false
     }
 }, {
     tableName: 'Payments' // Define table name explicitly to avoid case sensitivity issues

@@ -54,3 +54,14 @@ exports.getPaymentsByUserCID = async (req, res, next) => {
         res.status(500).json({ error: err.message });
     }
 };
+exports.updateTicketuse = async (req, res, next) =>{
+    try {
+        const payment = await Payment.findByPk(req.params.id);
+        console.log(payment)
+        payment.pay_status = true
+        await payment.save();
+        res.json({ data: payment, status: "success"});
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+}
