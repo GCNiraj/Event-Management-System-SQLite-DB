@@ -1,5 +1,5 @@
 const Event = require('../models/eventModel')
-const AppError = require('../Event-Management-System/utils/appError')
+const AppError = require('../utils/appError')
 
 exports.getAllEvents = async (req, res ,next) => {
     try {

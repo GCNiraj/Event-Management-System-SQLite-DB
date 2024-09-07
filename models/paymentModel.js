@@ -1,12 +1,12 @@
-const {DataTypes} = require('sequelize')
-const db = require('./db')
+const { DataTypes } = require('sequelize');
+const db = require('./db');
 const User = require('./userModel');
 const Event = require('./eventModel');
 
 const Payment = db.define('Payment', {
     transaction_ID: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV1,
+        defaultValue: DataTypes.UUIDV1, // SQLite supports UUIDs as strings
         primaryKey: true
     },
     attendee_CID: {
@@ -23,26 +23,26 @@ const Payment = db.define('Payment', {
             key: 'eventid'
         }
     },
-    total_Amount:{
+    total_Amount: {
         type: DataTypes.INTEGER
     },
     no_of_tickets: {
         type: DataTypes.INTEGER
     }
-})
+}, {
+    tableName: 'Payments' // Define table name explicitly to avoid case sensitivity issues
+});
 
-Payment.belongsTo(User, { foreignKey: 'attendee_CID' });
-Payment.belongsTo(Event, { foreignKey: 'event_ID' });
+// Define relationships with cascading on update/delete
+Payment.belongsTo(User, { foreignKey: 'attendee_CID', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
+Payment.belongsTo(Event, { foreignKey: 'event_ID', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
 
-// Sync database and handle potential issues with column existence
+// Sync the database
 async function syncDb() {
     try {
-        const tableDefinition = await db.getQueryInterface().describeTable('Payments');
-        if (!tableDefinition.attendee_CID) {
-            await db.sync({ alter: true });
-        } else {
-            console.log('Column "cid" already exists in "Payments" table. No alteration needed.');
-        }
+        // Directly sync the database without manual column checking
+        // await db.sync({ alter: true });
+        console.log('Database synced successfully');
     } catch (error) {
         console.error('Error during sync:', error);
     }
@@ -50,4 +50,4 @@ async function syncDb() {
 
 syncDb();
 
-module.exports = Payment
+module.exports = Payment;

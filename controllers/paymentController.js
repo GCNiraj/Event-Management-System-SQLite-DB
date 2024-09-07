@@ -1,5 +1,5 @@
 const Payment = require('../models/paymentModel')
-const AppError = require('../Event-Management-System/utils/appError')
+const AppError = require('../utils/appError')
 
 exports.getAllPayments = async (req, res ,next) => {
     try {

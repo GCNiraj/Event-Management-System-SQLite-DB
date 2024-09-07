@@ -1,11 +1,11 @@
-const { DataTypes } = require('sequelize')
-const db = require('./db')
+const { DataTypes } = require('sequelize');
+const db = require('./db');
 const User = require('./userModel');
 
-const Event = db.define('Event',{
+const Event = db.define('Event', {
     eventid: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        defaultValue: DataTypes.UUIDV4, // SQLite can handle this if UUID generation is enabled
         primaryKey: true
     },
     eventmanagerCID: {
@@ -51,32 +51,50 @@ const Event = db.define('Event',{
     organizer_number: {
         type: DataTypes.STRING
     },
-    organizer_web:{
+    organizer_web: {
         type: DataTypes.STRING
     },
     event_regulations: {
-        type: DataTypes.ARRAY(DataTypes.STRING)
+        // SQLite does not have an ARRAY type, so we use a TEXT field with comma-separated values
+        type: DataTypes.TEXT,
+        get() {
+            const rawValue = this.getDataValue('event_regulations');
+            return rawValue ? rawValue.split(',') : [];
+        },
+        set(value) {
+            this.setDataValue('event_regulations', value.join(','));
+        }
     },
     pricing_Details: {
         type: DataTypes.STRING
     },
     media_Links: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
-        default: ['']
+        // Same as above for storing array-like values as text
+        type: DataTypes.TEXT,
+        defaultValue: '',
+        get() {
+            const rawValue = this.getDataValue('media_Links');
+            return rawValue ? rawValue.split(',') : [];
+        },
+        set(value) {
+            this.setDataValue('media_Links', value.join(','));
+        }
     }
-})
+});
 
 // Correct `belongsTo` association with proper foreign key syntax
-Event.belongsTo(User, { foreignKey: 'eventmanagerCID' });
+Event.belongsTo(User, { foreignKey: 'eventmanagerCID', onDelete: 'CASCADE', onUpdate: 'CASCADE' });
 
 // Sync database and handle potential issues with column existence
 async function syncDb() {
     try {
         const tableDefinition = await db.getQueryInterface().describeTable('Events');
         if (!tableDefinition.eventmanagerCID) {
+            // await db.query('PRAGMA foreign_keys = OFF;');
             await db.sync({ alter: true });
+            // await db.query('PRAGMA foreign_keys = ON;');
         } else {
-            console.log('Column "cid" already exists in "Events" table. No alteration needed.');
+            console.log('Column "eventmanagerCID" already exists in "Events" table. No alteration needed.');
         }
     } catch (error) {
         console.error('Error during sync:', error);

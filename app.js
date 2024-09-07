@@ -5,8 +5,8 @@ const cookieParser = require('cookie-parser')
 const logger = require('./logger');
 
 const userRouter = require('./routes/userRoutes')
-// const eventRouter = require('./routes/eventRoutes')
-// const paymentRouter = require('./routes/paymentRoutes')
+const eventRouter = require('./routes/eventRoutes')
+const paymentRouter = require('./routes/paymentRoutes')
 const viewRouter = require('./routes/viewRoutes')
 
 app.use(express.static(path.join(__dirname, 'views')))
@@ -14,8 +14,8 @@ app.use(express.static(path.join(__dirname, 'views')))
 app.use(cookieParser())
 app.use(express.json())
 app.use('/api/v1/users',userRouter)
-// app.use('/api/v1/events',eventRouter)
-// app.use('/api/v1/payments', paymentRouter)
+app.use('/api/v1/events',eventRouter)
+app.use('/api/v1/payments', paymentRouter)
 app.use('/', viewRouter)
 
 app.use((err, req, res, next) => {

@@ -61,16 +61,25 @@ const User = db.define('User', {
       }
     },
   },
+  tableName: 'Users' // Define table name explicitly to avoid case sensitivity issues
 });
 
 User.prototype.correctPassword = async function(candidatePassword) {
   return await bcrypt.compare(candidatePassword, this.password);
 }
 
-// Sync database (consider using migrations in production)
+// Sync database only if the 'Users' table doesn't exist
 async function syncDb() {
   try {
-    await db.sync({ alter: true });
+    const tableExists = await db.getQueryInterface().showAllTables();
+    
+    // Only sync if the 'Users' table does not exist
+    if (!tableExists.includes('Users')) {
+      await db.sync({ alter: true });
+      console.log('User table created and synchronized');
+    } else {
+      console.log('User table already exists. No sync needed.');
+    }
   } catch (error) {
     console.error('Error during database synchronization:', error);
   }
