@@ -1,0 +1,70 @@
+{
+  level: 'error',
+  message: AppError: Event not found
+      at exports.deleteEvent (/workspaces/Event-Management-System/controllers/eventController.js:64:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    statusCode: 404,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Legal Aid Center Website',
+  timestamp: 'Sep-05-2024 07:52:17'
+}
+{
+  level: 'error',
+  message: AppError: Event not found
+      at exports.getEvent (/workspaces/Event-Management-System/controllers/eventController.js:26:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    statusCode: 404,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Legal Aid Center Website',
+  timestamp: 'Sep-05-2024 11:09:58'
+}
+{
+  level: 'error',
+  message: AppError: Incorrect email or password
+      at exports.login (/workspaces/javascript-node-postgres-3/controllers/authController.js:51:25) {
+    statusCode: 401,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-05-2024 13:54:02'
+}
+{
+  level: 'error',
+  message: AppError: Incorrect email or password
+      at exports.login (/workspaces/Event-Management-System/controllers/authController.js:51:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    statusCode: 401,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-05-2024 17:34:51'
+}
+{
+  level: 'error',
+  message: AppError: Incorrect email or password
+      at exports.login (/workspaces/Event-Management-System/controllers/authController.js:51:25)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+    statusCode: 401,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-05-2024 17:35:19'
+}
+{
+  level: 'error',
+  message: AppError: Incorrect email or password
+      at exports.login (/workspaces/Event-Management-System/controllers/authController.js:51:25) {
+    statusCode: 401,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-07-2024 12:26:29'
+}
