@@ -392,60 +392,57 @@
 		</div>
 	</footer>
 	<!-- Footer End-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 	<script>
-		window.onload = function () {
-			// Get the data from the URL
-			const urlParams = new URLSearchParams(window.location.search);
-			const data = urlParams.get('data');
-	
-			// Generate the QR code
-			if (data) {
-				const qrCodeElement = document.getElementById('qrcode');
-				new QRCode(qrCodeElement, {
-					text: decodeURIComponent(data),
-					width: 128,  // Width of the QR code
-					height: 128  // Height of the QR code
-				});
-	
-				// Simulate a QR code scan (e.g., if someone scans the QR code with their phone)
-				// qrCodeElement.onclick = function () {
-				// 	showModal(decodeURIComponent(data));
-				// };
-			}
-	
-			// Modal logic
-			const modal = document.getElementById("qrDataModal");
-			const closeBtn = document.getElementsByClassName("close")[0];
-	
-			// Close the modal when the user clicks the close button
-			closeBtn.onclick = function() {
-				modal.style.display = "none";
-			};
-	
-			// Close the modal when the user clicks anywhere outside of the modal
-			window.onclick = function(event) {
-				if (event.target == modal) {
-					modal.style.display = "none";
-				}
-			};
+window.onload = function () {
+    // Get the encrypted data from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const encryptedData = urlParams.get('data');
+
+    if (encryptedData) {
+        const qrCodeElement = document.getElementById('qrcode');
+        new QRCode(qrCodeElement, {
+            text: encryptedData,           // Use the encrypted minimal data
+            width: 128,                    // Adjust size as needed
+            height: 128,
+            colorDark: "#000000",           // Dark color
+            colorLight: "#ffffff",          // Light background color
+            correctLevel: QRCode.CorrectLevel.M // Medium error correction level
+        });
+    }
+
+    // Modal logic remains the same
+    const modal = document.getElementById("qrDataModal");
+    const closeBtn = document.getElementsByClassName("close")[0];
+    closeBtn.onclick = function () {
+        modal.style.display = "none";
+    };
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+};
+
 	
 			// Function to show the modal and populate the QR code data
-			function showModal(data) {
-				const qrDataContent = document.getElementById("qrDataContent");
-				qrDataContent.textContent = data; // Display decoded QR data
-				modal.style.display = "block";
+			// function showModal(data) {
+			// 	const qrDataContent = document.getElementById("qrDataContent");
+			// 	qrDataContent.textContent = data; // Display decoded QR data
+			// 	modal.style.display = "block";
 	
-				// Add logic for the "Register Attendee" button
-				const registerBtn = document.getElementById("registerAttendeeButton");
-				registerBtn.onclick = function() {
-					registerAttendee(JSON.parse(data));
-				};
-			}
+			// 	// Add logic for the "Register Attendee" button
+			// 	const registerBtn = document.getElementById("registerAttendeeButton");
+			// 	registerBtn.onclick = function() {
+			// 		registerAttendee(JSON.parse(data));
+			// 	};
+			// }
 	
 			// Function to register the attendee (make an API call)
-			function registerAttendee(attendeeData) {
-				alert(`Registering attendee with CID: ${attendeeData.attendee_CID}`);
+			// function registerAttendee(attendeeData) {
+			// 	alert(`Registering attendee with CID: ${attendeeData.attendee_CID}`);
 				// Make an API call to register the attendee here
 				// Example:
 				/*
@@ -461,8 +458,8 @@
 					alert('Error registering attendee');
 				});
 				*/
-			}
-		};
+		// 	}
+		
 	</script>
 	
 	

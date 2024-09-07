@@ -23,18 +23,20 @@ const checkout = async (event_ID, attendee_CID, total_Amount, no_of_tickets) => 
 
         if (res.data.status === 'success') {
             showAlert('success', 'Payment is successful');
-
-            // Store the data to encode in the QR code
+            const transactionID = res.data.data.transaction_ID;
+            alert(transactionID)
+            console.log(transactionID)
             const qrData = JSON.stringify({
-                event_ID,
-                attendee_CID,
-                total_Amount,
-                no_of_tickets
+                transactionID,   // Only store minimal data, like transaction ID
+                attendee_CID,    // Attendee ID
             });
+
+            const secretKey = 'secret-key'; // Use your secret key
+            const encryptedData = CryptoJS.AES.encrypt(qrData, secretKey).toString();
 
             // Wait for a moment, then redirect to the confirmation page
             window.setTimeout(() => {
-                location.assign(`/bookingConfirmed?data=${encodeURIComponent(qrData)}`);
+                location.assign(`/bookingConfirmed?data=${encodeURIComponent(encryptedData)}`);
             }, 1500);
         }
     } catch (err) {
