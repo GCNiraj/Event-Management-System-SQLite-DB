@@ -68,3 +68,25 @@
   label: 'Event Management Website',
   timestamp: 'Sep-07-2024 12:26:29'
 }
+{
+  level: 'error',
+  message: AppError: Incorrect email or password
+      at exports.login (/workspaces/Event-Management-System-SQLite-DB/controllers/authController.js:51:25) {
+    statusCode: 401,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-07-2024 17:18:28'
+}
+{
+  level: 'error',
+  message: AppError: Incorrect email or password
+      at exports.login (/workspaces/Event-Management-System-SQLite-DB/controllers/authController.js:51:25) {
+    statusCode: 401,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-07-2024 17:18:55'
+}
