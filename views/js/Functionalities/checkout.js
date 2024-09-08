@@ -24,7 +24,6 @@ const checkout = async (event_ID, attendee_CID, total_Amount, no_of_tickets) => 
         if (res.data.status === 'success') {
             showAlert('success', 'Payment is successful');
             const transactionID = res.data.data.transaction_ID;
-            alert(transactionID)
             console.log(transactionID)
             const qrData = JSON.stringify({
                 transactionID,   // Only store minimal data, like transaction ID
