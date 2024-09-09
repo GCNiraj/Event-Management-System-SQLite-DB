@@ -1,11 +1,15 @@
 import { showAlert } from './alert.js'
 
-var obj 
-if (document.cookie) {
-    var tokenString = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
-    var obj = JSON.parse(tokenString);
-} else {
-    obj = JSON.parse('{}');
+var obj
+try{
+    if (document.cookie) {
+        var tokenString = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
+        var obj = JSON.parse(tokenString);
+    } else {
+        obj = JSON.parse('{}');
+    }
+}catch (err){
+    console.log(err)
 }
 
 const checkout = async (event_ID, attendee_CID, total_Amount, no_of_tickets) => {

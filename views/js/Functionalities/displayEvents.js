@@ -49,11 +49,17 @@ allEvents()
 const displayEvents = (event) => {
     var arr = event.data
     for (let i = 0; i < arr.length; i++) {
+
+        const element = arr[i]
+
+        if (document.getElementById(element.eventid)){
+            continue
+        }
         var card = document.querySelector('#card').cloneNode(true)
         var el1 = card.querySelector('.publish-date')
         var el2 = card.querySelector('.event-title')
 
-        const element = arr[i]
+        
 
         const date = new Date(element.end_Date);  // Convert to Date object
 
