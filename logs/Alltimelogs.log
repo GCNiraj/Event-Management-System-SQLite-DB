@@ -90,3 +90,193 @@
   label: 'Event Management Website',
   timestamp: 'Sep-07-2024 17:18:55'
 }
+{
+  level: 'error',
+  message: AppError: Please upload an image
+      at exports.uploadEventImage (/workspaces/barebones-nodejs-2/controllers/eventController.js:40:25)
+      at Layer.handle [as handle_request] (/workspaces/barebones-nodejs-2/node_modules/express/lib/router/layer.js:95:5)
+      at next (/workspaces/barebones-nodejs-2/node_modules/express/lib/router/route.js:144:13)
+      at done (/workspaces/barebones-nodejs-2/node_modules/multer/lib/make-middleware.js:45:7)
+      at indicateDone (/workspaces/barebones-nodejs-2/node_modules/multer/lib/make-middleware.js:49:68)
+      at Multipart.<anonymous> (/workspaces/barebones-nodejs-2/node_modules/multer/lib/make-middleware.js:166:7)
+      at Multipart.emit (node:events:517:28)
+      at emitCloseNT (node:internal/streams/destroy:132:10)
+      at process.processTicksAndRejections (node:internal/process/task_queues:81:21) {
+    statusCode: 400,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-09-2024 16:18:02'
+}
+{
+  level: 'error',
+  message: MulterError: Unexpected field
+      at wrappedFileFilter (/workspaces/barebones-nodejs-2/node_modules/multer/index.js:40:19)
+      at Multipart.<anonymous> (/workspaces/barebones-nodejs-2/node_modules/multer/lib/make-middleware.js:107:7)
+      at Multipart.emit (node:events:517:28)
+      at HeaderParser.cb (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:358:14)
+      at HeaderParser.push (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:162:20)
+      at SBMH.ssCb [as _cb] (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:394:37)
+      at feed (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:248:10)
+      at SBMH.push (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:104:16)
+      at Multipart._write (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:567:19)
+      at writeOrBuffer (node:internal/streams/writable:392:12) {
+    code: 'LIMIT_UNEXPECTED_FILE',
+    field: 'photo',
+    storageErrors: []
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-09-2024 18:14:29'
+}
+{
+  level: 'error',
+  message: AppError: Event not found
+      at exports.getEvent (/workspaces/barebones-nodejs-2/controllers/eventController.js:75:25) {
+    statusCode: 404,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-09-2024 18:20:46'
+}
+{
+  level: 'error',
+  message: MulterError: Unexpected field
+      at wrappedFileFilter (/workspaces/barebones-nodejs-2/node_modules/multer/index.js:40:19)
+      at Multipart.<anonymous> (/workspaces/barebones-nodejs-2/node_modules/multer/lib/make-middleware.js:107:7)
+      at Multipart.emit (node:events:517:28)
+      at HeaderParser.cb (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:358:14)
+      at HeaderParser.push (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:162:20)
+      at SBMH.ssCb [as _cb] (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:394:37)
+      at feed (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:248:10)
+      at SBMH.push (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:104:16)
+      at Multipart._write (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:567:19)
+      at writeOrBuffer (node:internal/streams/writable:392:12) {
+    code: 'LIMIT_UNEXPECTED_FILE',
+    field: 'photo',
+    storageErrors: []
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-09-2024 18:24:43'
+}
+{
+  level: 'error',
+  message: MulterError: Unexpected field
+      at wrappedFileFilter (/workspaces/barebones-nodejs-2/node_modules/multer/index.js:40:19)
+      at Multipart.<anonymous> (/workspaces/barebones-nodejs-2/node_modules/multer/lib/make-middleware.js:107:7)
+      at Multipart.emit (node:events:517:28)
+      at HeaderParser.cb (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:358:14)
+      at HeaderParser.push (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:162:20)
+      at SBMH.ssCb [as _cb] (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:394:37)
+      at feed (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:248:10)
+      at SBMH.push (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:104:16)
+      at Multipart._write (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:567:19)
+      at writeOrBuffer (node:internal/streams/writable:392:12) {
+    code: 'LIMIT_UNEXPECTED_FILE',
+    field: 'photo',
+    storageErrors: []
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-09-2024 18:28:53'
+}
+{
+  level: 'error',
+  message: MulterError: Unexpected field
+      at wrappedFileFilter (/workspaces/barebones-nodejs-2/node_modules/multer/index.js:40:19)
+      at Multipart.<anonymous> (/workspaces/barebones-nodejs-2/node_modules/multer/lib/make-middleware.js:107:7)
+      at Multipart.emit (node:events:517:28)
+      at HeaderParser.cb (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:358:14)
+      at HeaderParser.push (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:162:20)
+      at SBMH.ssCb [as _cb] (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:394:37)
+      at feed (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:248:10)
+      at SBMH.push (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:104:16)
+      at Multipart._write (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:567:19)
+      at writeOrBuffer (node:internal/streams/writable:392:12) {
+    code: 'LIMIT_UNEXPECTED_FILE',
+    field: 'photo',
+    storageErrors: []
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-09-2024 18:45:57'
+}
+{
+  level: 'error',
+  message: MulterError: Unexpected field
+      at wrappedFileFilter (/workspaces/barebones-nodejs-2/node_modules/multer/index.js:40:19)
+      at Multipart.<anonymous> (/workspaces/barebones-nodejs-2/node_modules/multer/lib/make-middleware.js:107:7)
+      at Multipart.emit (node:events:517:28)
+      at HeaderParser.cb (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:358:14)
+      at HeaderParser.push (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:162:20)
+      at SBMH.ssCb [as _cb] (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:394:37)
+      at feed (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:248:10)
+      at SBMH.push (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:104:16)
+      at Multipart._write (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:567:19)
+      at writeOrBuffer (node:internal/streams/writable:392:12) {
+    code: 'LIMIT_UNEXPECTED_FILE',
+    field: 'photo',
+    storageErrors: []
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-09-2024 18:53:53'
+}
+{
+  level: 'error',
+  message: MulterError: Unexpected field
+      at wrappedFileFilter (/workspaces/barebones-nodejs-2/node_modules/multer/index.js:40:19)
+      at Multipart.<anonymous> (/workspaces/barebones-nodejs-2/node_modules/multer/lib/make-middleware.js:107:7)
+      at Multipart.emit (node:events:517:28)
+      at HeaderParser.cb (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:358:14)
+      at HeaderParser.push (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:162:20)
+      at SBMH.ssCb [as _cb] (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:394:37)
+      at feed (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:248:10)
+      at SBMH.push (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:104:16)
+      at Multipart._write (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:567:19)
+      at writeOrBuffer (node:internal/streams/writable:392:12) {
+    code: 'LIMIT_UNEXPECTED_FILE',
+    field: 'photo',
+    storageErrors: []
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-09-2024 18:53:59'
+}
+{
+  level: 'error',
+  message: MulterError: Unexpected field
+      at wrappedFileFilter (/workspaces/barebones-nodejs-2/node_modules/multer/index.js:40:19)
+      at Multipart.<anonymous> (/workspaces/barebones-nodejs-2/node_modules/multer/lib/make-middleware.js:107:7)
+      at Multipart.emit (node:events:517:28)
+      at HeaderParser.cb (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:358:14)
+      at HeaderParser.push (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:162:20)
+      at SBMH.ssCb [as _cb] (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:394:37)
+      at feed (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:248:10)
+      at SBMH.push (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:104:16)
+      at Multipart._write (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:567:19)
+      at writeOrBuffer (node:internal/streams/writable:392:12) {
+    code: 'LIMIT_UNEXPECTED_FILE',
+    field: 'photo',
+    storageErrors: []
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-09-2024 18:54:04'
+}
+{
+  level: 'error',
+  message: MulterError: Unexpected field
+      at wrappedFileFilter (/workspaces/barebones-nodejs-2/node_modules/multer/index.js:40:19)
+      at Multipart.<anonymous> (/workspaces/barebones-nodejs-2/node_modules/multer/lib/make-middleware.js:107:7)
+      at Multipart.emit (node:events:517:28)
+      at HeaderParser.cb (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:358:14)
+      at HeaderParser.push (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:162:20)
+      at SBMH.ssCb [as _cb] (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:394:37)
+      at feed (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:248:10)
+      at SBMH.push (/workspaces/barebones-nodejs-2/node_modules/streamsearch/lib/sbmh.js:104:16)
+      at Multipart._write (/workspaces/barebones-nodejs-2/node_modules/busboy/lib/types/multipart.js:567:19)
+      at writeOrBuffer (node:internal/streams/writable:392:12) {
+    code: 'LIMIT_UNEXPECTED_FILE',
+    field: 'photo',
+    storageErrors: []
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-09-2024 18:55:16'
+}

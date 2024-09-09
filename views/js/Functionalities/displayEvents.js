@@ -44,7 +44,6 @@ const allEvents = async () => {
         console.log(err)
     }
 }
-allEvents()
 
 const displayEvents = (event) => {
     var arr = event.data
@@ -72,7 +71,7 @@ const displayEvents = (event) => {
 
         el1.innerHTML = '' + readableDate
         el2.innerHTML = '' + element.eventName
-
+        card.querySelector('#img').src = element.media_Links
         el2.setAttribute('id',element.eventid)
         el2.addEventListener('click',()=> recordId(element.eventid))
 

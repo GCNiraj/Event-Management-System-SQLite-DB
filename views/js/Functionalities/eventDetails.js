@@ -76,4 +76,6 @@ const displayEvent = (event) => {
 
     var location = document.querySelector('#location')
     location.innerHTML = event.data.event.eventLocation
+
+    document.querySelector('#banner').src = event.data.event.media_Links
 }

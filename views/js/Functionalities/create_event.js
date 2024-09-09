@@ -8,6 +8,30 @@ if (document.cookie) {
     obj = JSON.parse('{}');
 }
 
+const uploadBanner = async(eventid) => {
+    const form = new FormData()
+    form.append('eventid', eventid)
+    form.append('mediaLink', document.getElementById('thumb-img').files[0])
+    try {
+        const res = await axios({
+            method: 'PUT',
+            url: 'http://localhost:4001/api/v1/events/updateBanner',
+            data: form,
+            headers: {
+                'Content-Type': 'multipart/form-data'  // Important for file uploads
+            }
+        })
+        if (res.data.status === 'success') {
+            window.setTimeout(()=>{
+                location.assign('/');
+            },2000)
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+
 const create = async (eventmanagerCID,eventName, eventType, start_Date, end_Date, eventDescription, eventLocation) => {
     try {
         const res = await axios({
@@ -24,12 +48,10 @@ const create = async (eventmanagerCID,eventName, eventType, start_Date, end_Date
             },
         })
         if (res.data.status === 'success') {
-            showAlert('success', 'Event Created successfully')
-            window.setTimeout(() => {
-                window.open('/', '_blank');
-            }, 1500)
-            var obj = res.data.data.user
-            document.cookie = ' token = ' + JSON.stringify(obj)
+            if (document.getElementById('thumb-img').files[0]!== undefined){
+                uploadBanner(res.data.data.eventid)
+            }
+            showAlert('success', 'Event Created Successfully')
         }
     } catch (err) {
         let message = 
@@ -51,4 +73,5 @@ document.querySelector('#event_add').addEventListener('click', (e) => {
     const event_location = document.querySelector("#event_location").value
 
     create(obj["cid"], event_name, event_category, start_date, end_date, event_description, event_location)
+
 })

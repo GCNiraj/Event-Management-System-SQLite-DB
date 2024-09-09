@@ -71,14 +71,7 @@ const Event = db.define('Event', {
     media_Links: {
         // Same as above for storing array-like values as text
         type: DataTypes.TEXT,
-        defaultValue: '',
-        get() {
-            const rawValue = this.getDataValue('media_Links');
-            return rawValue ? rawValue.split(',') : [];
-        },
-        set(value) {
-            this.setDataValue('media_Links', value.join(','));
-        }
+        defaultValue: 'images/banners/custom-img.jpg'
     }
 });
 
