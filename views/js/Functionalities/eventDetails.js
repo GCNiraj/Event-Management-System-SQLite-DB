@@ -1,32 +1,25 @@
 import { showAlert } from './alert.js'
-
-// Logging Out
-const logout = async () => {
-    try {
-        const res = await axios({
-            method: 'GET',
-            url: 'http://localhost:4001/api/v1/users/logout',
-        })
-        if (res.data.status === 'success') {
-            document.cookie = ''
-            location.reload(true)
-        }
-    } catch (err) {
-        showAlert('error', 'Error logging out! Try again.')
-    }
-}
+import { logout } from './logout.js'
 
 var obj
 try{
     if (document.cookie) {
         var tokenString = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
         var obj = JSON.parse(tokenString);
+        document.querySelector('#logout').addEventListener('click', (e) => logout())
+        document.querySelector('#photo').src = 'images/users/'+obj.photo
+        document.querySelector('#photo2').src = 'images/users/'+obj.photo
+        document.querySelector('#name').innerHTML = obj.name 
+        document.querySelector('#email').innerHTML = obj.email
     } else {
+        document.querySelector('.create-btn.btn-hover').style.display = 'none'
+        document.querySelector('.dropdown.account-dropdown').style.display = 'none'
         obj = JSON.parse('{}');
     }
 }catch (err){
     console.log(err)
 }
+
 
 const getEvent = async () => {
     try {

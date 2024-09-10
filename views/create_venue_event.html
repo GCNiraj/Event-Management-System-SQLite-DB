@@ -810,7 +810,7 @@
           <div class="right-header order-2">
             <ul class="align-self-stretch">
               <li>
-                <a href="create.html" class="create-btn btn-hover">
+                <a href="/add_event" class="create-btn btn-hover">
                   <i class="fa-solid fa-calendar-days"></i>
                   <span>Create Event</span>
                 </a>
@@ -818,23 +818,23 @@
               <li class="dropdown account-dropdown">
                 <a href="#" class="account-link" role="button" id="accountClick" data-bs-auto-close="outside"
                   data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="images/profile-imgs/img-13.jpg" alt="" />
+                  <img src="images/profile-imgs/img-13.jpg" alt="" id="photo2">
                   <i class="fas fa-caret-down arrow-icon"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-account dropdown-menu-end" aria-labelledby="accountClick">
                   <li>
                     <div class="dropdown-account-header">
                       <div class="account-holder-avatar">
-                        <img src="images/profile-imgs/img-13.jpg" alt="" />
+                        <img src="images/profile-imgs/img-13.jpg" alt="" id="photo">
                       </div>
-                      <h5>John Doe</h5>
-                      <p>johndoe@example.com</p>
+                      <h5 id="name">John Doe</h5>
+                      <p id="email">johndoe@example.com</p>
                     </div>
                   </li>
                   <li class="profile-link">
                     <a href="my_organisation_dashboard.html" class="link-item">My Organisation</a>
                     <a href="organiser_profile_view.html" class="link-item">My Profile</a>
-                    <a href="sign_in.html" class="link-item">Sign Out</a>
+                    <a class="link-item" id="logout">Sign Out</a>
                   </li>
                 </ul>
               </li>
@@ -927,8 +927,8 @@
                                   name will be used.
                                   <a href="#" class="a-link">Learn more</a>
                                 </p>
-                                <input class="form-control h_50" id="event_name" type="text" placeholder="Enter event name here"
-                                  value="" />
+                                <input class="form-control h_50" id="event_name" type="text"
+                                  placeholder="Enter event name here" value="" />
                               </div>
                               <div class="form-group border_bottom pt_30 pb_30">
                                 <label class="form-label fs-16">Choose a category for your event.*</label>
@@ -999,8 +999,8 @@
                                   <div class="col-md-6">
                                     <label class="form-label mt-3 fs-6">Event Date.*</label>
                                     <div class="loc-group position-relative">
-                                      <input class="form-control h_50 datepicker-here" data-language="en" id="start_date" type="text"
-                                        placeholder="MM/DD/YYYY" value="" />
+                                      <input class="form-control h_50 datepicker-here" data-language="en"
+                                        id="start_date" type="text" placeholder="MM/DD/YYYY" value="" />
                                       <span class="absolute-icon"><i class="fa-solid fa-calendar-days"></i></span>
                                     </div>
                                   </div>
@@ -1009,8 +1009,8 @@
                                       <div class="col-md-6">
                                         <label class="form-label mt-3 fs-6">End Date.*</label>
                                         <div class="loc-group position-relative">
-                                          <input class="form-control h_50 datepicker-here" data-language="en" id="end_date"
-                                            type="text" placeholder="MM/DD/YYYY" value="" />
+                                          <input class="form-control h_50 datepicker-here" data-language="en"
+                                            id="end_date" type="text" placeholder="MM/DD/YYYY" value="" />
                                           <span class="absolute-icon"><i class="fa-solid fa-calendar-days"></i></span>
                                         </div>
                                       </div>

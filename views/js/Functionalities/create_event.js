@@ -1,11 +1,29 @@
 import { showAlert } from './alert.js'
+import { logout } from './logout.js'
 
-var obj 
-if (document.cookie) {
-    var tokenString = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
-    var obj = JSON.parse(tokenString);
-} else {
-    obj = JSON.parse('{}');
+var obj
+try{
+    if (document.cookie) {
+        var tokenString = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
+        var obj = JSON.parse(tokenString);
+        document.querySelector('#logout').addEventListener('click', (e) => logout())
+        document.querySelector('#photo').src = 'images/users/'+obj.photo
+        document.querySelector('#photo2').src = 'images/users/'+obj.photo
+        document.querySelector('#name').innerHTML = obj.name 
+        document.querySelector('#email').innerHTML = obj.email
+    } else {
+        obj = JSON.parse('{}');
+        showAlert('Unauthorized', 'You need to be valid user')
+        window.setTimeout(()=>{
+            location.assign('/');
+        },1500)
+    }
+}catch (err){
+    showAlert('Unauthorized', 'You need to be valid user. Login to access this functionality')
+    console.log(err)
+    window.setTimeout(()=>{
+        location.assign('/');
+    },1500)
 }
 
 const uploadBanner = async(eventid) => {
