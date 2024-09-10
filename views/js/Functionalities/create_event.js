@@ -50,6 +50,8 @@ const create = async (eventmanagerCID,eventName, eventType, start_Date, end_Date
         if (res.data.status === 'success') {
             if (document.getElementById('thumb-img').files[0]!== undefined){
                 uploadBanner(res.data.data.eventid)
+            }else{
+                location.assign('/')
             }
             showAlert('success', 'Event Created Successfully')
         }

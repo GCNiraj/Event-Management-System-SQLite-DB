@@ -17,11 +17,15 @@ const logout = async () => {
 }
 
 var obj
-if (document.cookie) {
-    var tokenString = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
-    var obj = JSON.parse(tokenString);
-} else {
-    obj = JSON.parse('{}');
+try{
+    if (document.cookie) {
+        var tokenString = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
+        var obj = JSON.parse(tokenString);
+    } else {
+        obj = JSON.parse('{}');
+    }
+}catch (err){
+    console.log(err)
 }
 
 const getEvent = async () => {
