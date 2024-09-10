@@ -1,4 +1,4 @@
-const Event = require('../models/eventModel')
+const Event = require('../models/eventModel');
 const AppError = require('../utils/appError')
 const multer = require('multer')
 
@@ -120,3 +120,23 @@ exports.deleteEvent = async (req, res, next) => {
         res.status(500).json({ error: err.message });
     }
 };
+
+exports.getAvailableSeats = async(req, res, next) => {
+    try {
+        const event = await Event.findByPk(req.params.id);
+        res.json({data: event.available_seats, status: "success"})
+    } catch (err) {
+        res.status(500).json({error: err.message})
+    }
+}
+
+exports.updateEventSeats = async(req, res, next) => {
+    try{
+        const event = await Event.findByPk(req.params.id);
+        event.available_seats = req.body.available_seats;
+        await event.save();
+        res.json({status:"success"})
+    }catch(err){
+        res.status(500).json({error: err.message});
+    }
+}

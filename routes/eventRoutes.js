@@ -15,5 +15,10 @@ router
     .delete(eventController.deleteEvent);
 
 router.put('/updateBanner',eventController.uploadEventBanner, eventController.uploadEventImage)
+
+router
+    .route('/availability/:id')
+    .get(eventController.getAvailableSeats)
+    .patch(eventController.updateEventSeats)
     
 module.exports = router
