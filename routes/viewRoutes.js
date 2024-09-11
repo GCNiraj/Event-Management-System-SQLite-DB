@@ -14,5 +14,7 @@ router.get('/event_details',viewsController.getEventDetails)
 router.get('/checkout',viewsController.getEventCheckout)
 router.get('/bookingConfirmed',viewsController.getEventBooking)
 
+/* Dashboard routes start here */ 
+router.get('/organizer_events', viewsController.getOrganisedEvents)
 
 module.exports = router

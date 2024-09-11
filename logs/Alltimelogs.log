@@ -280,3 +280,14 @@
   label: 'Event Management Website',
   timestamp: 'Sep-09-2024 18:55:16'
 }
+{
+  level: 'error',
+  message: AppError: Incorrect email or password
+      at exports.login (/workspaces/barebones-nodejs-2/controllers/authController.js:51:25) {
+    statusCode: 401,
+    status: 'fail',
+    isOperational: true
+  },
+  label: 'Event Management Website',
+  timestamp: 'Sep-11-2024 09:52:09'
+}
