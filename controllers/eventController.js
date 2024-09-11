@@ -58,6 +58,15 @@ exports.getAllEvents = async (req, res, next) => {
     }
 }
 
+exports.getAllEventsByCID = async (req, res, next) => {
+    try {
+        const events = await Event.findAll({where: {eventmanagerCID: req.params.id}})
+        res.status(200).json({ data: events, status: 'success' })
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+}
+
 exports.createEvent = async (req, res) => {
     try {
         const event = await Event.create(req.body);

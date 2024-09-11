@@ -20,5 +20,9 @@ router
     .route('/availability/:id')
     .get(eventController.getAvailableSeats)
     .patch(eventController.updateEventSeats)
+
+router
+    .route('/user/:id')
+    .get(eventController.getAllEventsByCID)
     
 module.exports = router
